@@ -1,0 +1,45 @@
+{% extends 'base.html.j2'%}
+
+{% block title %}
+Loading Pokedex
+{% endblock %}
+{% block content %}
+    <h3>Which Pokemon do you want to learn more about?</h3>
+    <form action="{{url_for('pokemonsearch')}}" method="POST">
+
+
+
+
+
+    </form>
+
+
+    
+    <form action="{{url_for('pokemonsearch')}}" method="POST">
+        <div class="input-group mb-3">
+            <input type="text" name="pokemon" class="form-control" placeholder="Enter a Pokemon's name here..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    </form>
+     {% if stats %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Ability</th>
+                    <th scope="col">Base XP</th>
+                    <th scope="col">Sprite</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{stats.name}}</th>
+                    <td>{{stats.ability}}</td>
+                    <td>{{stats.base_xp}}</td>
+                    <td><img src="{{stats.sprite}}"></td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}
